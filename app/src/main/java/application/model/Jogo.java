@@ -7,12 +7,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="livros")
-public class Livro {
+@Table(name="jogo")
+public class Jogo {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String titulo;
+    private int anoDeLancamento;
 
 
     public int getId() {
@@ -27,5 +28,13 @@ public class Livro {
     }
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+
+   }    
+    public int getAnoDeLancamento() {
+     return anoDeLancamento;
     }
-}
+    public void setAnoDeLancamento(int anoDeLancamento) {
+        this.anoDeLancamento = anoDeLancamento;
+    } 
+  }
+
