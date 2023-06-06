@@ -42,7 +42,7 @@ public class JogoController {
     @RequestMapping("/update")
     public String update(Model model, @RequestParam("id") int id){
         Optional<Jogo> jogo = jogoRepo.findById(id);
-        if(jogo.isPresent()){
+        if(!jogo.isPresent()){
             return "redirect:/jogos";
         }
 
@@ -53,7 +53,7 @@ public class JogoController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(@RequestParam("id") int id, @RequestParam("titulo") String titulo, @RequestParam("anoDeLancamento") int anoDeLancamento){
         Optional<Jogo> jogo = jogoRepo.findById(id);
-        if(jogo.isPresent()){
+        if(!jogo.isPresent()){
 
             return "redirect:/jogos";
 
@@ -69,12 +69,12 @@ public class JogoController {
     @RequestMapping("/delete")
     public String delete(Model model, @RequestParam("id") int id){
         Optional<Jogo> jogo = jogoRepo.findById(id);
-        if(jogo.isPresent()){
+        if(!jogo.isPresent()){
             return "redirect:/jogos";
         }
 
         model.addAttribute("jogo", jogo.get());
-        return "WEB-INF/update.jsp";
+        return "WEB-INF/delete.jsp";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
